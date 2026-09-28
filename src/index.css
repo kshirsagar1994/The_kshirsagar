@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-k: #000000;
+    --brand-w1: #e6e6e6;
+    --brand-w2: #c4c4c4;
+    --brand-g1: #757575;
+    --brand-g2: #2e2e2e;
+    --brand-o: #ff4d00;
+    --brand-o2: #ff2b00;
+
+    --bg-primary: #000000;
+    --bg-secondary: #0a0a0a;
+    --bg-card: rgba(255, 255, 255, 0.02);
+    --border-color: rgba(255, 255, 255, 0.12);
+    --text-primary: #e6e6e6;
+    --text-secondary: #c4c4c4;
+    --text-muted: #757575;
+    --accent: #ff4d00;
+  }
+
+  .light {
+    --brand-k: #ffffff;
+    --brand-w1: #111111;
+    --brand-w2: #444444;
+    --brand-g1: #888888;
+    --brand-g2: #e5e5e5;
+    --brand-o: #ff4d00;
+
+    --bg-primary: #fafafa;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(0, 0, 0, 0.02);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --text-primary: #111111;
+    --text-secondary: #444444;
+    --text-muted: #888888;
+    --accent: #ff4d00;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "ss01";
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--brand-k);
+    color: var(--brand-w1);
+    font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  [id] {
+    scroll-margin-top: 50px;
+  }
+
+  *::selection {
+    background: #ff4d00 !important;
+    color: #000000 !important;
+  }
+}
+
+/* ═══════════ BASEMENT GRID & TYPOGRAPHY SYSTEM ═══════════ */
+
+.grid-layout {
+  display: grid;
+  width: 100%;
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .grid-layout {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Monospace font */
+.font-mono {
+  font-family: 'Geist Mono', 'JetBrains Mono', monospace;
+}
+
+/* ═══════════ SIGNATURE BASEMENT INTERACTIONS ═══════════ */
+
+/* Actionable: Signature interactive link with animated line and orange highlight */
+.actionable {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: inherit;
+  transition: color 0.15s ease, opacity 0.15s ease;
+  cursor: pointer;
+}
+
+.actionable:hover {
+  color: #ff4d00 !important;
+}
+
+.actionable::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: #ff4d00;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.actionable:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.actionable-opacity {
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.actionable-opacity:hover {
+  opacity: 0.6;
+}
+
+/* Corner Borders: Technical crosshair look from basement */
+.corner-borders {
+  --b: 1px;
+  --c: rgba(230, 230, 230, 0.3);
+  --w: 8px;
+  border: var(--b) solid transparent;
+  --_g: transparent 90deg, var(--c) 0;
+  --_p: var(--w) var(--w) border-box no-repeat;
+  background:
+    conic-gradient(from 90deg at top var(--b) left var(--b), var(--_g)) 0 0 / var(--_p),
+    conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0 / var(--_p),
+    conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0 100% / var(--_p),
+    conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g)) 100% 100% / var(--_p);
+}
+
+/* Diagonal Stripes: Technical pattern for contact & featured panels */
+.with-diagonal-lines {
+  position: relative;
+  overflow: hidden;
+}
+
+.with-diagonal-lines::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: -64px;
+  background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_5291_41301)' stroke='%23fff' stroke-opacity='.06'%3E%3Cpath d='M-27 27 91-91M-27 35 91-83M-27 43 91-75M-27 51 91-67M-27 59 91-59M-27 67 91-51M-27 75 91-43M-27 83 91-35M-27 91 91-27M-27 99 91-19M-27 107 91-11M-27 115 91-3M-27 123 91 5M-27 131 91 13M-27 139 91 21M-27 147 91 29M-27 155 91 37'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_5291_41301'%3E%3Cpath fill='%23fff' d='M0 0h64v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: repeat;
+  animation: diagonalPatternAnimation 12s linear infinite;
+}
+
+@keyframes diagonalPatternAnimation {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(64px, 64px); }
+}
+
+/* ═══════════ MARQUEE ═══════════ */
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ═══════════ SCROLLBAR ═══════════ */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e2e2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff4d00;
+}
+
+/* ═══════════ BASEMENT FLAUTA FONT ═══════════ */
+@font-face {
+  font-family: 'Flauta';
+  src: url('/fonts/flauta.ttf') format('truetype');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-flauta {
+  font-family: 'Flauta', 'Geist', sans-serif;
+}
+
+/* ═══════════ CRT SCANLINES & MACHINE TERMINAL ═══════════ */
+.crt-overlay {
+  position: relative;
+}
+
+.crt-overlay::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
+  z-index: 40;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.crt-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 41;
+  pointer-events: none;
+}
+
+@keyframes crt-flicker {
+  0% { opacity: 0.98; }
+  50% { opacity: 1; }
+  52% { opacity: 0.94; }
+  54% { opacity: 0.99; }
+  100% { opacity: 0.98; }
+}
+
+.crt-flicker {
+  animation: crt-flicker 0.15s infinite;
+}
+
+/* Equalizer Bars Animation */
+@keyframes eq-bounce-1 { 0%, 100% { height: 3px; } 50% { height: 13px; } }
+@keyframes eq-bounce-2 { 0%, 100% { height: 11px; } 50% { height: 4px; } }
+@keyframes eq-bounce-3 { 0%, 100% { height: 5px; } 50% { height: 15px; } }
+@keyframes eq-bounce-4 { 0%, 100% { height: 14px; } 50% { height: 6px; } }
+@keyframes eq-bounce-5 { 0%, 100% { height: 4px; } 50% { height: 12px; } }
+
+.eq-bar-1 { animation: eq-bounce-1 0.75s ease-in-out infinite; }
+.eq-bar-2 { animation: eq-bounce-2 0.6s ease-in-out infinite 0.15s; }
+.eq-bar-3 { animation: eq-bounce-3 0.8s ease-in-out infinite 0.05s; }
+.eq-bar-4 { animation: eq-bounce-4 0.65s ease-in-out infinite 0.2s; }
+.eq-bar-5 { animation: eq-bounce-5 0.7s ease-in-out infinite 0.1s; }
+
+/* ═══════════ THEME UTILITY COMPATIBILITY ALIASES ═══════════ */
+.bg-theme-primary { background-color: #000000; }
+.bg-theme-secondary { background-color: #070707; }
+.bg-theme-card { background-color: rgba(255, 255, 255, 0.02); }
+.border-theme { border-color: rgba(255, 255, 255, 0.1); }
+.text-theme-primary { color: #e6e6e6; }
+.text-theme-secondary { color: #c4c4c4; }
+.text-theme-muted { color: #757575; }
+
+.font-syne {
+  font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.text-accent-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #ff4d00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 3.5rem 3.5rem;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
