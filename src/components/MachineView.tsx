@@ -59,7 +59,7 @@ export const MachineView: React.FC<MachineViewProps> = ({ onSwitchToHuman, onOpe
         break;
       case 'work':
       case 'projects':
-        response = 'FEATURED REPOSITORIES & SYSTEMS:\n- VVK Smart Tech: Smart irrigation IoT solutions (vvksmarttech.com)\n- Swami Ratna: Enterprise consultancy engagement platform\n- AIOD: Cross-platform Python/PyQt Media Engine with AI post-processing';
+        response = 'FEATURED REPOSITORIES & SYSTEMS:\n- VVK Smart Tech: Smart irrigation IoT solutions (vvksmarttech.com)\n- Swami Ratna: Enterprise consultancy engagement platform\n- AIOD: Cross-platform Python/PyQt Media Engine with AI post-processing\n- DMS: Department Management System (Python/Django)';
         break;
       case 'ai':
         response = 'AGENTIC REASONING PIPELINE:\n1. Multi-Modal Ingestion -> 2. Vector Dense+Sparse RAG -> 3. Autonomous Reasoning -> 4. Deterministic Output';
@@ -129,7 +129,8 @@ export const MachineView: React.FC<MachineViewProps> = ({ onSwitchToHuman, onOpe
     selectedWork: [
       { id: "vvk-smart-tech", name: "VVK Smart Tech Solutions", category: "IoT & Smart Irrigation" },
       { id: "swami-ratna", name: "Swami Ratna Consultancy", category: "Enterprise Web" },
-      { id: "aiod", name: "AIOD Media Architecture", category: "Desktop & AI" }
+      { id: "aiod", name: "AIOD Media Architecture", category: "Desktop & AI" },
+      { id: "dms", name: "DMS — Department Management System", category: "Python & Django ERP" }
     ]
   };
 

@@ -49,6 +49,17 @@ const projects: Project[] = [
     image: '/projects/aiod.jpg',
     href: 'https://github.com/kshirsagar1994/AIOD',
   },
+  {
+    id: 'dms',
+    title: 'DMS — Department Management System',
+    category: 'Enterprise Platform / Python & Django',
+    excerpt:
+      'Full-cycle academic department administration ecosystem engineered with Python and Django. Features multi-tier role-based access control (HOD, Faculty, Students), course management, and real-time records.',
+    tags: ['Python', 'Django', 'Enterprise ERP', 'Role-Based Access', 'PostgreSQL / SQLite'],
+    year: '2024',
+    image: '/projects/dms.jpg',
+    href: 'https://github.com/kshirsagar1994/DMS',
+  },
 ];
 
 export const SelectedWork: React.FC = () => {
@@ -357,7 +368,7 @@ export const SelectedWork: React.FC = () => {
 
       {/* Bottom Staggered Thumbnail Slider Rail */}
       <div className="grid-layout mt-12 pt-6 border-t border-[#2E2E2E]/60">
-        <div className="col-span-full grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="col-span-full grid grid-cols-2 md:grid-cols-4 gap-3">
           {projects.map((proj, idx) => {
             const isActive = idx === currentIndex;
             return (

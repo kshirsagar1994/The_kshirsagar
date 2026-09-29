@@ -64,7 +64,7 @@ export const Navigation: React.FC<NavigationProps> = ({
   }, [logoContextMenu]);
 
   const navLinks: Array<{ name: string; href: string; count?: number; isArcade?: boolean }> = [
-    { name: 'WORK', href: '#work', count: 3 },
+    { name: 'WORK', href: '#work', count: 4 },
     { name: 'CAPABILITIES', href: '#capabilities' },
     { name: 'AI ENGINE', href: '#ai-engine' },
     { name: 'ECOSYSTEM', href: '#ecosystem' },

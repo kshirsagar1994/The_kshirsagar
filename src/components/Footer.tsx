@@ -53,7 +53,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArcade }) => {
 
   const navLinks: Array<{ title: string; href: string; count?: number; isArcade?: boolean }> = [
     { title: 'Home', href: '#' },
-    { title: 'Work', href: '#work', count: 3 },
+    { title: 'Work', href: '#work', count: 4 },
     { title: 'Capabilities', href: '#capabilities' },
     { title: 'AI Engine', href: '#ai-engine' },
     { title: 'Ecosystem', href: '#ecosystem' },
